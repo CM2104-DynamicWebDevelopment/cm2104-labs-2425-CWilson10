@@ -1,4 +1,5 @@
 var express = require('express');
+var jokes = require('knock-knock-jokes')
 var app = express();
 
 app.get('/', function(req, res){
@@ -8,5 +9,11 @@ app.get('/', function(req, res){
 app.get('/test', function(req, res){
     res.send("This is route 2");
 });
+
+app.get('/joke', function(req, res){
+    res.send(joke());
+});
+
+app.get()
 
 app.listen('8080');
