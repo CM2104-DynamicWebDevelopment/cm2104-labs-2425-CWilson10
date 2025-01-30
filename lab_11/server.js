@@ -27,16 +27,16 @@ app.get('/calc', function(req, res){
     var operator = req.query.operator;
 
     switch(operator) {
-        case add:
+        case "add":
             res.send("X + Y="+(x+y));
             break;
-        case sub:
+        case "sub":
             res.send("X - Y="+(x-y));
             break;
-        case mul:
+        case "mul":
             res.send("X * Y="+(x*y));
             break;
-        case div:
+        case "div":
             res.send("X / Y="+(x/y));
         default:
             res.send("Enter real operator");
