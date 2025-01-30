@@ -1,7 +1,7 @@
 var express = require('express');
-var jokes = require('knock-knock-jokes')
+var knockKnockJokes = require('knock-knock-jokes')
+var randomJoke = knockKnockJokes();
 var app = express();
-var randomJoke = jokes();
 
 app.get('/', function(req, res){
     res.send("Hello world! by express");
