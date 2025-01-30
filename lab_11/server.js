@@ -11,8 +11,8 @@ app.get('/test', function(req, res){
 });
 
 app.get('/joke', function(req, res){
-    var randomJoke = joke()
-    res.end(randomJoke);
+    var randomJoke = joke();
+    res.send(randomJoke);
 });
 
 app.get()
