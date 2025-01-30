@@ -1,6 +1,5 @@
 var express = require('express');
 var knockKnockJokes = require('knock-knock-jokes')
-var randomJoke = knockKnockJokes();
 var app = express();
 
 app.get('/', function(req, res){
@@ -12,6 +11,7 @@ app.get('/test', function(req, res){
 });
 
 app.get('/joke', function(req, res){
+    var randomJoke = knockKnockJokes();
     res.send(randomJoke);
 });
 
