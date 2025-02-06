@@ -64,8 +64,8 @@ app.get('/searchLove', function (req, res) {
         getTracks('love', res);
     });
 
-app.get('/search', function (req, res) {
-    res.sendFile('form.html')
-   });
-   
+app.get('/search', function(req, res){
+    res.sendFile("form.html");
+    });
+
 app.listen(8080);
