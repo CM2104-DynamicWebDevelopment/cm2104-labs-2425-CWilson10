@@ -61,6 +61,12 @@ app.get('/'
     });
 
 app.get('/searchLove', function (req, res) {
-    getTracks('love', res);
-});
+        getTracks('love', res);
+    });
+
+app.get('/search', function (req, res) {
+    var searchterm = req.query.searchterm;
+    getTracks(searchterm, res);
+   });
+   
 app.listen(8080);
