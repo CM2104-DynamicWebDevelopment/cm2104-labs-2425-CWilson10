@@ -81,5 +81,11 @@ app.get('/search', function (req, res) {
     getTracks(searchterm, res);
 });
 
+app.get("/search/:artistID", function(req, res){
+    var artistID = req.params.artistID;
+
+    getTopTracks(artistID);
+});
+
 
 app.listen(8080);
