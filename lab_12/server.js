@@ -67,7 +67,7 @@ async function getTopTracks(artistID, res) {
             //this is a for loop 
             for (var i = 0; i < artist.length; i++) {
 
-                var track = tracks[i];
+                var track = artist[i];
                 console.log(track.name);
                 HTMLResponse = HTMLResponse +
                     "<div>" +
