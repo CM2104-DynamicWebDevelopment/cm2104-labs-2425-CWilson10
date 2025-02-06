@@ -103,7 +103,7 @@ app.get('/search', function (req, res) {
 app.get("/toptracks/:artistID", function(req, res){
     var artistID = req.params.artistID;
 
-    getTopTracks(artistID);
+    getTopTracks(artistID, res);
 });
 
 
