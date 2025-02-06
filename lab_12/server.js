@@ -43,7 +43,7 @@ async function getTracks(searchterm, res) {
                     "<h4>" + track.artists[0].name + "</h4>" +
                     "<img src='" + track.album.images[0].url + "'>" +
                     "<a href='" + track.external_urls.spotify + "'> Track Details </a>" +
-                    "<h5> Artist id = " + track.artists[0] + "</h5>"
+                    "<h5> Artist id = " + track.artists[0].id + "</h5>"
                     "</div>";
                 console.log(HTMLResponse);
             }
