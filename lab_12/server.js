@@ -78,6 +78,7 @@ async function getTopTracks(artistID, res) {
                     "<h5> Artist id = " + track.artists[0].id + "</h5>"
                     "</div>";
                 console.log(HTMLResponse);
+                res.send(HTMLResponse)
             }
             res.send(HTMLResponse)
         }, function (err) {
