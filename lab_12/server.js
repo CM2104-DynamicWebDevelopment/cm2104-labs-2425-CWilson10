@@ -60,6 +60,7 @@ async function getTopTracks(artistID, res) {
     spotifyApi.getArtistTopTracks(artistID,
         'GB')
         .then(function (data) {
+            console.log(data.body)
             var artist = data.body.tracks
             //lets set up a empty string to act as the response
             var HTMLResponse = "";
@@ -69,7 +70,7 @@ async function getTopTracks(artistID, res) {
 
                 var track = artist[i];
                 console.log(track.name);
-                HTMLResponse = HTMLResponse +
+                HTMLResponse +=
                     "<div>" +
                     "<h2>" + track.name + "</h2>" +
                     "<h4>" + track.artists[0].name + "</h4>" +
@@ -77,8 +78,6 @@ async function getTopTracks(artistID, res) {
                     "<a href='" + track.external_urls.spotify + "'> Track Details </a>" +
                     "<h5> Artist id = " + track.artists[0].id + "</h5>"
                     "</div>";
-                console.log(HTMLResponse);
-                res.send(HTMLResponse)
             }
             res.send(HTMLResponse)
         }, function (err) {
