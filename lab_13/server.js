@@ -7,6 +7,8 @@ const express = require('express');
 const app = express();
 //code to define the public 
 app.use(express.static('public'))
+app.use(express.urlencoded({extended:true}))
+
 var db;
 //run the connect method.
 connectDB();
@@ -32,3 +34,12 @@ app.get('/all', function (req, res) {
         res.send(output);
     });
 });
+
+app.post('/quotes', function (req, res) {
+    db.collection('quotes').insertOne(req.body, function(err, result) {
+    if (err) throw err;
+    console.log('saved to database')
+    res.redirect('/')
+    })
+   })
+   
