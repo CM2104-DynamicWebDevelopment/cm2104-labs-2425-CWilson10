@@ -118,7 +118,9 @@ app.get('/logout', function(req, res) {
 
 //update route
 app.get('/update', function(req, res) {
-  res.render('pages/update')
+  res.render('pages/update',{
+    currentUser: currentUser
+  })
 }
 );
 
