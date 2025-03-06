@@ -116,6 +116,12 @@ app.get('/logout', function(req, res) {
   res.redirect('/');
 });
 
+//update route
+app.get('/update', function(req, res) {
+  res.render('pages/update')
+}
+);
+
 
 
 
