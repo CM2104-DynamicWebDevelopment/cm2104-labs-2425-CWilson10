@@ -117,7 +117,12 @@ app.get('/logout', function(req, res) {
 });
 
 //update route
-app.get('/update', function(req, res) {
+app.get('/update', async function(req, res) {
+  const userID = req.session.userID;
+
+    const currentUser = await db.collection('people').findOne({ _id : userID });
+
+    const users = await db.collection('people').find().toArray();
   res.render('pages/update',{
     currentUser: currentUser
   })
