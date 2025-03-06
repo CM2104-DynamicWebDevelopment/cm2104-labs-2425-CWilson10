@@ -62,10 +62,13 @@ app.get('/', function(req, res) {
     if (err) throw err;
     //the result of the query is sent to the users page as the "users" array
     const userID = req.session.userID;
+
     const currentUser = await db.collection('people').findOne({ _id : userID });
+
     const users = await db.collection('people').find().toArray();
-    res.render('pages/users', {
-      users: result
+    res.render('pages/users', { 
+      users: result,
+      currentUser: currentUser
     })
   });
 
