@@ -58,9 +58,12 @@ app.get('/', function(req, res) {
   if(!req.session.loggedin){res.redirect('/login');return;}
 
   //otherwise perfrom a search to return all the documents in the people collection
-  db.collection('people').find().toArray(function(err, result) {
+  db.collection('people').find().toArray(async function(err, result) {
     if (err) throw err;
     //the result of the query is sent to the users page as the "users" array
+    const userID = req.session.userID;
+    const currentUser = await db.collection('people').findOne({ _id : userID });
+    const users = await db.collection('people').find().toArray();
     res.render('pages/users', {
       users: result
     })
@@ -133,7 +136,7 @@ app.post('/dologin', function(req, res) {
 
 
 
-    if(result.login.password == pword){ req.session.loggedin = true; res.redirect('/') }
+    if(result.login.password == pword){ req.session.loggedin = true; req.session.userID = result._id; res.redirect('/') }
 
 
 

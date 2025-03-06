@@ -9,7 +9,7 @@
 <body class="container">
     <header>
       <%- include('../partials/header')%>
-      <h1> Welcome current logged in user + <%= user.login.username %> </h1>
+      <h1> Welcome <%= currentUser.name.first %> <%= currentUser.name.last %> !</h1>
     </header>
 
   <main>
